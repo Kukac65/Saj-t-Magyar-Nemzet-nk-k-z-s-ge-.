@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>Saját Magyar Nemzetünk Közössége</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f2f2f2;
+    color:#222;
+}
+header{
+    background:#1c1c1c;
+    color:#fff;
+    padding:40px;
+    text-align:center;
+}
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    background:#2e2e2e;
+    padding:15px;
+}
+nav button{
+    background:none;
+    border:none;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+main{
+    max-width:1000px;
+    margin:auto;
+    padding:30px 20px;
+}
+.page{display:none;}
+.page.active{display:block;}
+.review{
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
+    box-shadow:0 0 6px rgba(0,0,0,0.1);
+}
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+button.send{
+    background:#5865F2;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.discord-btn{
+    display:inline-block;
+    background:#5865F2;
+    color:white;
+    padding:15px 30px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+footer{
+    background:#1c1c1c;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Saját Magyar Nemzetünk Közössége</h1>
+<p>Magyar Discord közösség – normális vibe 🇭🇺</p>
+</header>
+
+<nav>
+<button onclick="showPage('home')">Főoldal</button>
+<button onclick="showPage('about')">Rólunk</button>
+<button onclick="showPage('reviews')">Vélemények</button>
+<button onclick="showPage('rules')">Szabályzat</button>
+<button onclick="showPage('owners')">Tulajok</button>
+<button onclick="showPage('join')">Csatlakozás</button>
+</nav>
+
+<main>
+
+<div id="home" class="page active">
+<h2>Üdv nálunk 👋</h2>
+<p>
+A Saját Magyar Nemzetünk Közössége egy összetartó magyar Discord szerver,
+ahol a cél a nyugodt beszélgetés, a tisztelet és a jó hangulat.
+Itt nem a toxic viselkedés dominál, hanem a közösség.
+</p>
+</div>
+
+<div id="about" class="page">
+<h2>Rólunk</h2>
+<p>
+A szerver azért jött létre, hogy legyen egy normális magyar hely Discordon.
+Folyamatosan fejlesztjük, figyelünk a tagokra,
+és hosszú távon gondolkodunk.
+</p>
+</div>
+
+<div id="reviews" class="page">
+<h2>Rólunk mondták 💬</h2>
+
+<div class="review">
+<strong>Ceglédi Máté</strong><br>
+Nagyon korrekt szerver, ritka az ilyen normális magyar közösség.
+</div>
+
+<div class="review">
+<strong>Kovács Ádám</strong><br>
+Adminok segítőkészek, nincs fölös balhé, csak jó vibe.
+</div>
+
+<h3>Írd le te is a véleményed 👇</h3>
+
+<input type="text" id="name" placeholder="Neved">
+<textarea id="text" placeholder="Véleményed..."></textarea>
+<button class="send" onclick="addReview()">Küldés</button>
+
+<div id="userReviews"></div>
+</div>
+
+<div id="rules" class="page">
+<h2>Szabályzat</h2>
+<ul>
+<li>Tisztelet minden tag felé</li>
+<li>Spam és reklám tilos</li>
+<li>Rasszista vagy sértő tartalom = tiltás</li>
+<li>Admin döntése végleges</li>
+</ul>
+</div>
+
+<div id="owners" class="page">
+<h2>Tulajdonosok</h2>
+<p><strong>Beni 👑</strong> – alapító, fő irányítás</p>
+<p><strong>Bence 👑</strong> – fejlesztés, közösség</p>
+<p><strong>Áron 👑</strong> – rend, működtetés</p>
+</div>
+
+<div id="join" class="page">
+<h2>Csatlakozás</h2>
+<a class="discord-btn" href="https://discord.gg/ppdCdak8X" target="_blank">
+Csatlakozás Discordhoz
+</a>
+</div>
+
+</main>
+
+<footer>
+© 2026 Saját Magyar Nemzetünk Közössége
+</footer>
+
+<script>
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function addReview(){
+let name=document.getElementById('name').value;
+let text=document.getElementById('text').value;
+if(name==""||text=="") return;
+
+let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
+reviews.push({name,text});
+localStorage.setItem("reviews",JSON.stringify(reviews));
+loadReviews();
+document.getElementById('name').value="";
+document.getElementById('text').value="";
+}
+
+function loadReviews(){
+let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
+let box=document.getElementById('userReviews');
+box.innerHTML="";
+reviews.forEach(r=>{
+box.innerHTML+=`<div class="review"><strong>${r.name}</strong><br>${r.text}</div>`;
+});
+}
+loadReviews();
+</script>
+
+</body>
+</html>
