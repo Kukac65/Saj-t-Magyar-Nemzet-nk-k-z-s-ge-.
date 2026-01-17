@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Saját Magyar Nemzetünk Közössége</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+            color: #222;
+        }
+
+        header {
+            background: #1c1c1c;
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #2e2e2e;
+            padding: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        nav button:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .discord-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #1c1c1c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @keyframes fade {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Saját Magyar Nemzetünk Közössége</h1>
+    <p>Magyar Discord közösség – chill, összetartás, normális vibe 🇭🇺</p>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">Főoldal</button>
+    <button onclick="showPage('about')">Rólunk</button>
+    <button onclick="showPage('aboutme')">Rólam</button>
+    <button onclick="showPage('rules')">Szabályzat</button>
+    <button onclick="showPage('owners')">Tulajok</button>
+    <button onclick="showPage('join')">Csatlakozás</button>
+</nav>
+
+<main>
+    <!-- FŐOLDAL -->
+    <div id="home" class="page active">
+        <h2>Üdv nálunk 👋</h2>
+        <p>
+            Ez a Saját Magyar Nemzetünk Közössége hivatalos weboldala.
+            Itt minden fontos infót megtalálsz a Discord szerverről.
+        </p>
+        <p>
+            Ha egy normális magyar közösséget keresel,
+            ahol nincs toxic viselkedés,
+            akkor jó helyen jársz.
+        </p>
+    </div>
+
+    <!-- RÓLUNK -->
+    <div id="about" class="page">
+        <h2>Rólunk</h2>
+        <p>
+            A Saját Magyar Nemzetünk Közössége egy magyar Discord szerver,
+            ami az összetartásról és a normális közösségi életről szól.
+        </p>
+        <p>
+            Lehet beszélgetni, barátkozni, játszani,
+            eseményeken részt venni és együtt fejlődni.
+            A szerver folyamatosan fejlesztés alatt áll.
+        </p>
+        <p>
+            A célunk egy hosszú távon aktív,
+            barátságos és élvezhető közösség.
+        </p>
+    </div>
+
+    <!-- RÓLAM -->
+    <div id="aboutme" class="page">
+        <h2>Rólam</h2>
+        <p>
+            Én az egyik alapító vagyok,
+            aki aktívan dolgozik azon,
+            hogy a szerver folyamatosan fejlődjön.
+        </p>
+        <p>
+            Fontos számomra a közösség,
+            a rend és az, hogy mindenki jól érezze magát.
+        </p>
+    </div>
+
+    <!-- SZABÁLYZAT -->
+    <div id="rules" class="page">
+        <h2>Szabályzat</h2>
+        <ul>
+            <li>Tiszteld a többi tagot.</li>
+            <li>Tilos a spam, flood, reklám.</li>
+            <li>Sértő, gyűlölködő tartalom tiltott.</li>
+            <li>NSFW csak kijelölt helyen.</li>
+            <li>Politikai és vallási viták kerülendők.</li>
+            <li>Mások adatainak megosztása tilos.</li>
+            <li>Admin/mod döntése végleges.</li>
+        </ul>
+        <p>
+            A szabályok betartása minden tag számára kötelező.
+        </p>
+    </div>
+
+    <!-- TULAJOK -->
+    <div id="owners" class="page">
+        <h2>Tulajdonosok</h2>
+
+        <p><strong>Beni 👑</strong></p>
+        <p>
+            Beni a szerver alapítója és tulajdonosa.
+            Ő felel a fő irányért és a nagy döntésekért.
+        </p>
+
+        <p><strong>Bence 👑</strong></p>
+        <p>
+            Bence szintén tulajdonos,
+            aktívan segít a szerver fejlesztésében
+            és a közösség rendben tartásában.
+        </p>
+
+        <p><strong>Áron 👑</strong></p>
+        <p>
+            Áron a harmadik tulajdonos,
+            aki szintén aktív a szerveren,
+            segít a működtetésben
+            és a jó hangulat fenntartásában.
+        </p>
+
+        <p>
+            A három tulaj együtt dolgozik azon,
+            hogy a szerver stabil, aktív és élvezhető maradjon.
+        </p>
+    </div>
+
+    <!-- CSATLAKOZÁS -->
+    <div id="join" class="page">
+        <h2>Csatlakozás</h2>
+        <p>
+            Ha tetszik a vibe,
+            csatlakozz a Discord szerverhez:
+        </p>
+        <a class="discord-btn" href="https://discord.gg/ppdCdak8X" target="_blank">
+            Csatlakozás Discordhoz
+        </a>
+    </div>
+</main>
+
+<footer>
+    © 2026 Saját Magyar Nemzetünk Közössége
+</footer>
+
+<script>
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(p => {
+            p.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
