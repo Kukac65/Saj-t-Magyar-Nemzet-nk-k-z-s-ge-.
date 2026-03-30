@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#B3n1</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: url('bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* overlay */
+.overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* eső canvas */
+#rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* fejléc */
+header {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
+  color: #00ffcc;
+}
+
+/* box */
+.box {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 15px;
+}
+
+h2 {
+  text-align: center;
+  color: #00ffcc;
+}
+
+.center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: #00ffcc;
+  color: black;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* kapcsoló gomb */
+.toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+}
+</style>
+
+</head>
+<body>
+
+<canvas id="rain"></canvas>
+
+<button class="btn toggle" onclick="toggleRain()">🌧️ Eső KI/BE</button>
+
+<div class="overlay">
+
+<header>#B3n1</header>
+
+<div class="box">
+  <h2>Rólam</h2>
+  <p>
+    Szia! Beni vagyok 😎 Minecraft rajongó.<br><br>
+    Szeretek szervereket építeni, PvP-zni és közösséget építeni.
+  </p>
+</div>
+
+<div class="box">
+  <h2>Minecraft szerver</h2>
+  <p class="center">
+    🚧 Minecraft szerverem hamarosan... 🚧
+  </p>
+</div>
+
+<div class="box">
+  <h2>Milyen szervereken játszok</h2>
+  <ul>
+    <li><b>Neal</b></li>
+    <li><b>TurulCraft</b></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>Social</h2>
+  <div class="center">
+    <a href="https://discord.gg/PeXFgN2vZb" class="btn">Discord</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+const canvas = document.getElementById('rain');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let rainDrops = [];
+let rainOn = true;
+
+for (let i = 0; i < 200; i++) {
+  rainDrops.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    length: Math.random() * 20 + 10,
+    speed: Math.random() * 5 + 5
+  });
+}
+
+function drawRain() {
+  if (!rainOn) return;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = 'rgba(173,216,230,0.5)';
+  ctx.lineWidth = 1;
+
+  for (let i = 0; i < rainDrops.length; i++) {
+    let drop = rainDrops[i];
+    ctx.beginPath();
+    ctx.moveTo(drop.x, drop.y);
+    ctx.lineTo(drop.x, drop.y + drop.length);
+    ctx.stroke();
+
+    drop.y += drop.speed;
+
+    if (drop.y > canvas.height) {
+      drop.y = -20;
+      drop.x = Math.random() * canvas.width;
+    }
+  }
+
+  requestAnimationFrame(drawRain);
+}
+
+drawRain();
+
+function toggleRain() {
+  rainOn = !rainOn;
+  if (rainOn) drawRain();
+  else ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+</script>
+
+</body>
+</html>
