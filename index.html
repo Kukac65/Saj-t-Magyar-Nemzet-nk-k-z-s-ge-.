@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magyar Köztársaság | Discord Szerver</title>
+    <style>
+        :root {
+            --hu-red: #CE2939;
+            --hu-white: #FFFFFF;
+            --hu-green: #477050;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--dark-bg);
+            color: var(--hu-white);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+            border-top: 8px solid var(--hu-red);
+            border-bottom: 8px solid var(--hu-green);
+            max-width: 600px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--hu-red), var(--hu-white), var(--hu-green));
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            font-weight: bold;
+            color: var(--hu-white);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--hu-green);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--hu-red);
+        }
+
+        .coat-of-arms {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="coat-of-arms">🇭🇺</div>
+        <h1>Magyar Köztársaság</h1>
+        <div class="divider"></div>
+        
+        <p>Üdvözöljük a Magyar Köztársaság hivatalos Discord közösségében! Egy hely, ahol a rend, a tisztelet és a közös célok egyesítik a tagokat. Csatlakozzon hozzánk ön is!</p>
+        
+        <div class="stats">
+            <div class="stat-item">🏛️ Hivatalos közösség</div>
+            <div class="stat-item">🛡️ Szigorú rend</div>
+            <div class="stat-item">💬 Aktív párbeszéd</div>
+        </div>
+
+        <a href="IDE_A_MEGHÍVÓ_LINKET" class="btn">Belépés a Szerverre</a>
+    </div>
+
+</body>
+</html>
